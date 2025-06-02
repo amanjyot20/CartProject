@@ -7,10 +7,13 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
+
 public class LoginTestCase 
 {
 	public static void main(String[] args) 
 	{
+		WebDriverManager.chromedriver().setup();
 		// TODO Auto-generated method stub
 		WebDriver driver = new ChromeDriver();
 		driver.get("https://opensource-demo.orangehrmlive.com/");
@@ -24,9 +27,9 @@ public class LoginTestCase
 		WebElement passwordField = wait.until(ExpectedConditions.visibilityOfElementLocated(By.name("password")));
 		passwordField.sendKeys("admin123");
 		
-
 		WebElement loginButton = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[@type='submit']")));
 		loginButton.click();
 		//driver.findElement(By.name("search")).sendKeys("T-shirt");
+		driver.quit();
 	}
 }

@@ -26,10 +26,11 @@ public class CartLocators {
 		WebElement passwordField = wait.until(ExpectedConditions.visibilityOfElementLocated(By.name("password")));
 		passwordField.sendKeys("admin123");
 		
-
 		WebElement loginButton = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[@type='submit']")));
 		loginButton.click();
+		WebElement searchButton = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"app\"]/div[1]/div[1]/aside/nav/div[2]/div/div/input")));
+				searchButton.sendKeys("Dashboard");
 		
-		driver.findElement(By.name("search")).sendKeys("T-shirt");
+		//driver.findElement(By.name("search")).sendKeys("T-shirt");
 	}
 }
